@@ -13,6 +13,27 @@ public class RecursionExamples {
         System.out.println("factorial of " + num + " is " + factorial);
 
         System.out.println("****************************");
+
+        final int num1 = 15;
+        final int num2 = 20;
+
+        final int gcdValue = gcd(num1, num2);
+
+        System.out.println("gcd of " + num1 + " and " + num2 + " is " + gcdValue);
+    }
+
+    private static int gcd(int num1, int num2) {
+        // System.out.println("gcd of " + num1 + " and " + num2);
+        if (num1 < num2) {
+            final int tmp = num1;
+            num1 = num2;
+            num2 = tmp;
+        }
+
+        if (num2 == 0) {
+            return num1;
+        }
+        return gcd(num2, num1 % num2);
     }
 
     private static int factorial(final int num) {
