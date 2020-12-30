@@ -80,10 +80,10 @@ public class FunctionalInterfaceExamples {
          * Binary Operator
          */
 
-        final BinaryOperator<Integer> multiply = (val1, val2) -> {
+        final BinaryOperator<Integer> multiply1 = (val1, val2) -> {
             return val1 * val2;
         };
-        System.out.println("Binary Operation Product  : " + multiply.apply(5, 10));
+        System.out.println("Binary Operation Product  : " + multiply1.apply(5, 10));
 
 
         /**
@@ -101,5 +101,56 @@ public class FunctionalInterfaceExamples {
             System.out.println("Input (" + val + ") Trim And Convert Case : " + trimAndConvertCase.apply(val));
         }
 
+        /**
+         * BIFunction with lambda
+         */
+
+        final BiFunction<String, String, String> concat = (a, b) -> a + b;
+        System.out.println("Bifunction conact output : " + concat.apply("hello", "world"));
+
+
+        /**
+         * Functional Interface
+         */
+
+        final Greetings message = (name) -> {
+            System.out.println("Hello " + name);
+        };
+        message.sayHello("Murali");
+
+        final Welcome welcomeMessage = (name) -> {
+            System.out.println("Welcome " + name);
+        };
+
+        welcomeMessage.sayWelcome("Murali");
+
+        /**FunctionalInterface */
+
+
+        final Calculate add = (a, b) -> a + b;
+        final Calculate difference = (a, b) -> a - b;
+        final Calculate multiply = (a, b) -> a * b;
+        final Calculate devide = (a, b) -> (b != 0) ? a / b : 0;
+
+        System.out.println("add : " + add.calc(3, 5));
+        System.out.println("difference : " + difference.calc(3, 5));
+        System.out.println("multiply : " + multiply.calc(3, 5));
+        System.out.println("devide : " + devide.calc(30, 5));
+    }
+
+    @FunctionalInterface
+    interface Greetings {
+        void sayHello(String input);
+    }
+
+    @FunctionalInterface
+    interface Welcome {
+        void sayWelcome(String input);
+    }
+
+
+    @FunctionalInterface
+    interface Calculate {
+        int calc(int a, int b);
     }
 }
