@@ -18,6 +18,7 @@ public class CollectionsExample {
 
         final ListIterator<Integer> numItr = numbers.listIterator();
 
+      
         while (numItr.hasNext()) {
 
             final Integer next = numItr.hasNext() ? numItr.next() : null;
