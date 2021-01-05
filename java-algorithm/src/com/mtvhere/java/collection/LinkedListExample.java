@@ -7,7 +7,7 @@ public class LinkedListExample {
     public static void main(final String[] args) {
         final LinkedList<Integer> numbersList = new LinkedList();
 
-
+        
         numbersList.add(10);
         numbersList.add(30);
         numbersList.addFirst(0);

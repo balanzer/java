@@ -1,5 +1,11 @@
 package com.mtvhere.java;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.IntStream;
+
 public class HelloWorld {
     public static void main(final String ags[]) {
         System.out.println("Hello World!");
@@ -11,5 +17,17 @@ public class HelloWorld {
         final byte byteVar = 123;
         System.out.println("byteVar " + byteVar);
 
+        //final int[] intArray = new int[1];
+
+        //System.out.println("intArray " + intArray[1]);
+
+        final Set<Integer> numbers = new HashSet<>();
+
+        IntStream.range(1, 20).forEach(num -> {
+            numbers.add(num % 4);
+            System.out.println("added  " + num + " to set, set size : " + numbers.size() + "  items in set : " + numbers);
+        });
+
+        Collections.synchronizedList(new ArrayList<>());
     }
 }
