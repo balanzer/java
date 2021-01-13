@@ -29,5 +29,14 @@ public class HelloWorld {
         });
 
         Collections.synchronizedList(new ArrayList<>());
+
+
+        final String sample = "Hello World";
+
+        System.out.println("string from char array : " + new String(sample.toCharArray()));
+
+        IntStream.range(0, sample.length()).forEach(index -> {
+            System.out.println("Index " + index + " char is " + sample.charAt(index));
+        });
     }
 }

@@ -4,8 +4,8 @@ public class GCDExample {
 
     public static void main(final String[] arg) {
 
-        final int num1 = 55;
-        final int num2 = 121;
+        final int num1 = 8;
+        final int num2 = 24;
         int gcd = 1;
 
         for (int i = 1; i <= num1 && i <= num2; i++) {
