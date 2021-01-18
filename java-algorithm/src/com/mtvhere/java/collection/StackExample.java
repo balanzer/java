@@ -37,7 +37,7 @@ public class StackExample {
 
         if (null != s && s.trim().length() > 0 && s.trim().length() % 2 == 0) {
             final Stack<Character> stack = new Stack<Character>();
-            s.toCharArray();
+
             for (int i = 0; i < s.length(); i++) {
                 final Character currentChar = s.charAt(i);
                 if (stack.size() > 0) {
