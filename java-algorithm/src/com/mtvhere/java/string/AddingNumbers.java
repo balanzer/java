@@ -1,7 +1,5 @@
 package com.mtvhere.java.string;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Predicate;
 
 /**
@@ -9,7 +7,7 @@ import java.util.function.Predicate;
  */
 public class AddingNumbers {
 
-    private static boolean isValidNumber(final String num) {
+    private boolean isValidNumber(final String num) {
         if (num != null && num.trim().length() > 0) {
             for (int i = num.length() - 1; i >= 0; i--) {
                 if (num.charAt(i) < '0' || num.charAt(i) > '9') {
@@ -21,72 +19,68 @@ public class AddingNumbers {
         return false;
     }
 
-    public static String add(final String[] nums) {
+    public String addStrings(String num1, String num2) {
 
         final Predicate<String> validate = s -> {
-            return isValidNumber(s);
+            return this.isValidNumber(s);
         };
-        final List<String> numsToAdd = new ArrayList<>();
+
 
         int maxLength = 0;
-        for (final String num : nums) {
-            if (validate.test(num)) {
-                if (maxLength < num.length()) {
-                    maxLength = num.length();
-                }
-                numsToAdd.add(num);
-            }
 
+        if (validate.test(num1) && validate.test((num2))) {
+            maxLength = Math.max(num1.length(), num2.length());
         }
+        num1 = this.addPrefixZero(num1, maxLength);
+        num2 = this.addPrefixZero(num2, maxLength);
 
-        for (int i = 0; i < numsToAdd.size(); i++) {
-            final String num = numsToAdd.get(i);
+        //System.out.println("num1 : " + num1 + ", num2 : " + num2);
+        // System.out.println("Max Length : " + maxLength);
 
-            if (num.length() < maxLength) {
-                numsToAdd.remove(i);
-                numsToAdd.add(i, addPreFixZero(num, maxLength));
-            }
-        }
-
-
-        System.out.println(numsToAdd);
-
+        String result = new String();
+        int carry = 0;
+        int sum = 0;
         for (int i = maxLength - 1; i >= 0; i--) {
-            int columnSum = 0;
-            final int remainder = 0;
-            for (int j = 0; j < numsToAdd.size(); j++) {
-                final String num = numsToAdd.get(j);
 
-                columnSum = columnSum + Integer.parseInt("" + num.charAt(i));
 
-            }
-            System.out.println(columnSum);
+            char n1 = num1.charAt(i);
+            char n2 = num2.charAt(i);
 
-            if (columnSum < 10) {
+            Integer number1 = Integer.parseInt("" + n1);
+            Integer number2 = Integer.parseInt("" + n2);
 
-            } else {
+            sum = carry + number1 + number2;
+            carry = (sum - (sum % 10)) / 10;
 
-            }
+            // System.out.println(number1 + " " + number2 + " sum : " + sum + " carry : " + carry);
+            result = (sum % 10) + result;
         }
-
-
-        return "";
+        //add final carry
+        if (carry > 0) {
+            result = carry + result;
+        }
+        // System.out.println("Result : " + result.toString());
+        return result;
     }
 
-    private static String addPreFixZero(final String num, final int maxLength) {
-        StringBuilder prefix = new StringBuilder("");
-
-        for (int i = num.length(); i < maxLength; i++) {
-            System.out.println(i + " " + maxLength + " for " + num);
-            prefix = prefix.append("0");
+    private String addPrefixZero(String num, int maxLength) {
+        int curLength = num.length();
+        StringBuilder output = new StringBuilder();
+        while (curLength < maxLength) {
+            output = output.append("0");
+            curLength++;
         }
-        return prefix.append(num).toString();
+        return output.append(num).toString();
     }
+
 
     public static void main(final String[] args) {
 
-        final String[] nums = {"1", "3", "10", "12", "101", ""};
-        final String result = add(nums);
+        AddingNumbers solution = new AddingNumbers();
+
+        final String num1 = "555";
+        final String num2 = "555";
+        final String result = solution.addStrings(num1, num2);
         System.out.println("output : " + result);
 
     }
