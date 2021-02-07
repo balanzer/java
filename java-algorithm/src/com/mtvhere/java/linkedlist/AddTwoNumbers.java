@@ -1,4 +1,4 @@
-package com.mtvhere.java.datastructures.linkedlist;
+package com.mtvhere.java.linkedlist;
 
 public class AddTwoNumbers {
 
@@ -32,7 +32,7 @@ public class AddTwoNumbers {
         final int num2 = this.getNumbers(l2);
 
         num1 = num1 + num2;
-       
+
 
         ListNode result = null;
         ListNode head = null;

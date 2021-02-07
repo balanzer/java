@@ -1,4 +1,4 @@
-package com.mtvhere.java.datastructures.linkedlist;
+package com.mtvhere.java.linkedlist;
 
 public class ReverseList {
     public static void main(String[] args) {

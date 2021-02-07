@@ -1,4 +1,4 @@
-package com.mtvhere.java.datastructures.stack;
+package com.mtvhere.java.stack;
 
 public class RansomNote {
     public static void main(String[] args) {

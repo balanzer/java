@@ -1,4 +1,4 @@
-package com.mtvhere.java.datastructures.queue;
+package com.mtvhere.java.queue;
 
 import java.util.LinkedList;
 import java.util.Queue;
