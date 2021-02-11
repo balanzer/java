@@ -5,8 +5,21 @@ public class AddTwoNumbers {
     public static void main(final String[] args) {
         final AddTwoNumbers nums = new AddTwoNumbers();
 
+        ListNode l1 = new ListNode(1, null);
+        l1.next = new ListNode(2, null);
+        l1.next.next = new ListNode(15);
 
-        nums.addTwoNumbers(null, null);
+
+        ListNode l2 = new ListNode(3, null);
+        l2.next = new ListNode(4, null);
+        l2.next.next = new ListNode(6);
+
+
+        ListNode output = nums.addTwoNumbers(l1, l2);
+        while (output != null) {
+            System.out.print(output.val + " -> ");
+            output = output.next;
+        }
     }
 
     public int getNumbers(ListNode l1) {
@@ -54,7 +67,7 @@ public class AddTwoNumbers {
         return head;
     }
 
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
 

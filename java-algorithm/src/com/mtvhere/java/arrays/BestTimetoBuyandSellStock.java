@@ -32,6 +32,30 @@ public class BestTimetoBuyandSellStock {
 
     }
 
+    public int maxProfit(int[] prices) {
+
+        int maxProfit = 0;
+        int minPrice = Integer.MAX_VALUE;
+
+        if (null != prices && prices.length >= 2) {
+
+            for (int i = 0; i < prices.length; i++) {
+
+                if (prices[i] < minPrice) {
+                    minPrice = prices[i];
+                }
+
+                if (prices[i] - minPrice > maxProfit) {
+                    maxProfit = prices[i] - minPrice;
+                }
+
+                // System.out.println("min : " + minPrice + " max : " + maxProfit);
+            }
+        }
+
+        return maxProfit;
+
+    }
 
     private int minIndex(int[] arr, int start, int end) {
 
@@ -83,7 +107,7 @@ public class BestTimetoBuyandSellStock {
         return 0;
     }
 
-    public int maxProfit(int[] prices) {
+    public int maxProfitv1(int[] prices) {
         int minIndex = this.minIndex(prices, 0, prices.length);
         int max = 0;
         int copyRange = prices.length;
