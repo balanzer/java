@@ -20,6 +20,7 @@ public class ReverseList {
         System.out.println();
     }
 
+
     public ListNode reverseList(ListNode head) {
         ListNode previous = null;
         while (head != null) {
